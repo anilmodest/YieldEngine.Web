@@ -1,0 +1,15 @@
+properties:
+  configuration:
+    ingress:
+      external: true
+      targetPort: 3000
+  template:
+    containers:
+      - name: yield-engine-web
+        image: ghcr.io/anilmodest/yield-engine-web:PLACEHOLDER_SHA
+        env:
+          - name: VITE_API_BASE_URL
+            value: "PLACEHOLDER_API_URL"
+        resources:
+          cpu: 0.5
+          memory: 1.0Gi
