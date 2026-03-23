@@ -5,7 +5,7 @@ RUN npm install --loglevel=error
 COPY . .
 ARG VITE_API_BASE_URL=""
 ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
-RUN ./node_modules/.bin/vite build
+RUN node ./node_modules/vite/bin/vite.js build
 
 FROM nginx:alpine AS runtime
 COPY --from=build /app/dist /usr/share/nginx/html
